@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create an Axios instance with a default base URL
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000/api", // Ensure this line accesses the correct base URL
+  baseURL: "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api", // Ensure this line accesses the correct base URL
   timeout: 10000, // Optional: set a timeout for requests
 });
 

@@ -12,11 +12,14 @@ const Signup = () => {
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/signup", {
-        username,
-        email,
-        password,
-      });
+      await axios.post(
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/signup",
+        {
+          username,
+          email,
+          password,
+        }
+      );
       navigate("/login");
     } catch (error) {
       alert(error.response.data.message);

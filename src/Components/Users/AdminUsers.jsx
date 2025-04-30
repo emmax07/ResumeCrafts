@@ -21,7 +21,7 @@ const AdminUser = () => {
       try {
         // Fetch user profile
         const profile = await axios.get(
-          "http://localhost:5000/api/user/profile",
+          "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
           {
             headers: { Authorization: `Bearer ${token}` },
           }
@@ -34,9 +34,12 @@ const AdminUser = () => {
         }
 
         // Fetch all users if the logged-in user is an admin
-        const response = await axios.get("http://localhost:5000/api/users", {
-          headers: { Authorization: `Bearer ${token}` },
-        });
+        const response = await axios.get(
+          "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/users",
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        );
         setUsers(response.data);
       } catch (err) {
         console.error(err);
@@ -50,9 +53,12 @@ const AdminUser = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/users/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/users/${id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setUsers(users.filter((user) => user.id !== id));
     } catch (err) {
       console.error("Delete failed", err);
@@ -72,7 +78,7 @@ const AdminUser = () => {
   const handleSave = async () => {
     try {
       await axios.put(
-        `http://localhost:5000/api/users/${editingUser}`,
+        `https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/users/${editingUser}`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

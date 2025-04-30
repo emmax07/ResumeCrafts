@@ -27,7 +27,7 @@ const ResumePreview3 = ({ userEmail }) => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5000/api/resumes",
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes",
         formData,
         {
           headers: {

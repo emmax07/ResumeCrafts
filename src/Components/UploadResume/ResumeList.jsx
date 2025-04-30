@@ -12,9 +12,12 @@ const ResumeList = () => {
 
   const fetchProfile = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/user/profile", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setUserEmail(res.data.email);
       setUserRole(res.data.role);
     } catch (err) {
@@ -25,9 +28,12 @@ const ResumeList = () => {
 
   const fetchResumes = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/resumes", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       console.log(res.data);
       if (userRole !== "admin") {
         const filtered = res.data.filter(
@@ -65,10 +71,13 @@ const ResumeList = () => {
       )
     ) {
       axios
-        .get(`http://localhost:5000/api/resumes/${resumeId}/download`, {
-          responseType: "blob",
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        .get(
+          `https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes/${resumeId}/download`,
+          {
+            responseType: "blob",
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
         .then((res) => {
           const url = window.URL.createObjectURL(
             new Blob([res.data], { type: "application/pdf" })
@@ -99,10 +108,13 @@ const ResumeList = () => {
       )
     ) {
       axios
-        .get(`http://localhost:5000/api/resumes/${resumeId}/preview`, {
-          responseType: "blob",
-          headers: { Authorization: `Bearer ${token}` },
-        })
+        .get(
+          `https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes/${resumeId}/preview`,
+          {
+            responseType: "blob",
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
         .then((res) => {
           const url = window.URL.createObjectURL(
             new Blob([res.data], { type: "application/pdf" })
@@ -124,9 +136,12 @@ const ResumeList = () => {
     if (!confirmDelete) return;
 
     try {
-      await axios.delete(`http://localhost:5000/api/resumes/${resumeId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes/${resumeId}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       fetchResumes();
     } catch (err) {
       console.error("Delete error", err);

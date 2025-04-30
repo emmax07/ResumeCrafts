@@ -6,7 +6,9 @@ const Logout = () => {
 
   const handleLogout = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/api/logout");
+      const response = await axios.post(
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/logout"
+      );
       alert(response.data.message);
 
       localStorage.removeItem("isLoggedIn");

@@ -16,7 +16,10 @@ const UploadResume = ({ onUpload }) => {
     formData.append("userEmail", userEmail); // Correctly use userEmail
 
     try {
-      await axios.post("http://localhost:5000/api/resumes", formData);
+      await axios.post(
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes",
+        formData
+      );
       alert("Uploaded successfully!");
       onUpload(); // refresh list
     } catch (err) {

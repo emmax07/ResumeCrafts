@@ -16,7 +16,7 @@ const Navbar = () => {
         const token = localStorage.getItem("token");
         if (token) {
           const res = await axios.get(
-            "http://localhost:5000/api/user/profile",
+            "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
             {
               headers: { Authorization: `Bearer ${token}` },
             }

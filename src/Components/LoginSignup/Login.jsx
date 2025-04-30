@@ -12,10 +12,13 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/api/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/login",
+        {
+          email,
+          password,
+        }
+      );
 
       console.log(response);
       alert(response.data.message);
@@ -27,7 +30,7 @@ const Login = () => {
       window.dispatchEvent(new Event("storage"));
 
       const userResponse = await axios.get(
-        "http://localhost:5000/api/user/profile",
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
         {
           headers: {
             Authorization: `Bearer ${token}`,

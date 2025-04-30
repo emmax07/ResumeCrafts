@@ -17,9 +17,12 @@ const Users = () => {
   // Function to fetch profile
   const fetchProfile = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/user/profile", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setProfile(res.data);
       setFormData({
         username: res.data.username,
@@ -50,12 +53,16 @@ const Users = () => {
         payload.password = formData.password;
       }
 
-      await axios.put("http://localhost:5000/api/user/profile", payload, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      await axios.put(
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
+        payload,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       // Re-fetch the profile to reflect changes
       await fetchProfile();

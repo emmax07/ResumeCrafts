@@ -10,7 +10,7 @@ import UsersDashboard from "./Components/Dashboard/UsersDashboard.jsx";
 import Resume from "./Components/Resume/Resume.jsx";
 import ResumePreview from "./Components/ResumePreview/ResumePreview.jsx";
 import Users from "./Components/Users/Users.jsx";
-import AdminUser from "./Components/Users/Adminusers.jsx";
+import AdminUser from "./Components/Users/AdminUsers.jsx";
 import ForgotPassword from "./Components/Password/ForgotPassword.jsx";
 import ResetPassword from "./Components/Password/ResetPassword.jsx";
 import { UserProvider } from "./Components/UserContext/UserContext.jsx";
