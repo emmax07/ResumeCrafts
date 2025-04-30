@@ -1,0 +1,126 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: white;
+  background-image: url("../Components/Assets/BestResume.jpg"); /* Add your image path here */
+}
+
+/* Home page container styling */
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Home card container */
+.home-card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+/* Animation for home card to fade in */
+@keyframes fadeInUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Heading styling */
+.home-section h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+}
+
+/* Emphasized text within h1 */
+.home-section h1 strong {
+  color: #2575fc;
+}
+
+/* Paragraph styling */
+.home-section p {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* Call-to-action buttons container */
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Styling for both buttons */
+.cta-button {
+  text-decoration: none;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Login button styling */
+.login-button {
+  background-color: #2575fc;
+  color: white;
+  border: 2px solid transparent;
+}
+
+.login-button:hover {
+  background-color: transparent;
+  border: 2px solid #2575fc;
+  color: #2575fc;
+  transform: translateY(-2px);
+}
+
+/* Sign Up button styling */
+.signup-button {
+  background-color: #e74c3c;
+  color: white;
+  border: 2px solid transparent;
+}
+
+.signup-button:hover {
+  background-color: transparent;
+  border: 2px solid #e74c3c;
+  color: #e74c3c;
+  transform: translateY(-2px);
+}
+
+/* Bottom link container */
+.bottom-link {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Styling for the 'Log in here' link */
+.bottom-link a {
+  color: #2575fc;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.bottom-link a:hover {
+  color: #1d4db2;
+}

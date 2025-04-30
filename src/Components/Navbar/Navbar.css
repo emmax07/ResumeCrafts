@@ -1,0 +1,128 @@
+/* Navbar Styling */
+nav {
+  background-color: #3f51b5;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-radius: 16px;
+}
+
+/* Wrapper for items on the right */
+nav .right-items {
+  display: flex;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav li:last-child {
+  margin-right: 0;
+}
+
+/* Home Button (left aligned) */
+.home-button a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  /* text-transform: uppercase; */
+  transition: color 0.3s ease;
+}
+
+.home-button a:hover {
+  color: #45a049;
+}
+
+/* Username Section with Avatar */
+.username {
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin-right: 20px;
+  text-transform: capitalize;
+}
+
+/* Avatar Circle */
+.avatar {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  color: #3f51b5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+/* Dashboard Button */
+.dashboard button {
+  background-color: #45a049;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.dashboard button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.dashboard button:focus {
+  outline: none;
+}
+
+/* Logout Button */
+.logout-button {
+  font-size: 16px;
+}
+
+.logout-button a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #e74c3c;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button a:hover {
+  background-color: #c0392b;
+}
+
+/* Login Link */
+nav li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav li a:hover {
+  color: #45a049;
+}

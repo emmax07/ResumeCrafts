@@ -1,0 +1,276 @@
+/* General Styles */
+.admin-dashboard input,
+.user-dashboard input,
+.admin-dashboard select,
+.user-dashboard select,
+.admin-dashboard button,
+.user-dashboard button {
+  padding: 10px 15px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.admin-dashboard button,
+.user-dashboard button {
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+.admin-dashboard button:hover,
+.user-dashboard button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.admin-dashboard button:disabled,
+.user-dashboard button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Admin Dashboard */
+.admin-dashboard {
+  margin: 5%;
+  padding: 30px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: #f4f7fb;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.admin-dashboard table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.admin-dashboard th,
+.admin-dashboard td {
+  padding: 16px;
+  text-align: left;
+  font-size: 16px;
+  color: #555;
+}
+
+.admin-dashboard th {
+  background-color: #3f51b5;
+  color: white;
+}
+
+.admin-dashboard td {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.admin-dashboard tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.admin-dashboard td input,
+.admin-dashboard td select {
+  width: 100%;
+  max-width: 250px;
+}
+
+.admin-dashboard td button {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-top: 8px;
+}
+
+.admin-dashboard td button:hover {
+  background-color: #e53935;
+}
+
+.admin-dashboard td button:active {
+  background-color: #d32f2f;
+}
+
+/* User Dashboard */
+.user-dashboard {
+  margin: 5%;
+  padding: 40px;
+  background-color: #f8f9fc;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.user-dashboard h2 {
+  text-align: center;
+  font-size: 32px;
+  color: #333;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+}
+
+.user-dashboard p {
+  font-size: 18px;
+  color: #555;
+  margin: 12px 0;
+  line-height: 1.6;
+}
+
+/* Improved Input Fields */
+.user-dashboard input[type="password"],
+.user-dashboard input[type="email"],
+.user-dashboard input[type="text"] {
+  width: 100%;
+  max-width: 450px;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #fafafa;
+  transition: all 0.3s ease;
+}
+
+.user-dashboard input:focus {
+  outline: none;
+  border-color: #3f51b5;
+  background-color: #fff;
+}
+
+/* Buttons */
+.user-dashboard button {
+  padding: 12px 30px;
+  margin-top: 20px;
+  background-color: #4caf50;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+}
+
+.user-dashboard button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+.user-dashboard button[style] {
+  background-color: #f44336;
+}
+
+.user-dashboard button[style]:hover {
+  background-color: #e53935;
+}
+
+.user-dashboard button:focus {
+  outline: none;
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
+
+/* Edit and Save Buttons */
+.user-dashboard .button-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px; /* Adds space between the buttons */
+}
+
+.user-dashboard .edit-btn,
+.user-dashboard .cancel-btn {
+  width: 48%; /* Ensures the buttons are evenly spaced */
+}
+
+.user-dashboard .edit-btn {
+  background-color: #2196f3;
+}
+
+.user-dashboard .edit-btn:hover {
+  background-color: #1976d2;
+}
+
+.user-dashboard .cancel-btn {
+  background-color: #f44336;
+}
+
+.user-dashboard .cancel-btn:hover {
+  background-color: #d32f2f;
+}
+
+/* Card-like Effect */
+.user-dashboard .card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  margin: 15px 0;
+}
+
+.user-dashboard .card h3 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.user-dashboard .card p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.user-dashboard .card button {
+  background-color: #3f51b5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.user-dashboard .card button:hover {
+  background-color: #303f9f;
+  transform: translateY(-2px);
+}
+
+.user-dashboard .card button:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .user-dashboard {
+    padding: 30px;
+  }
+
+  .user-dashboard h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  .user-dashboard input[type="password"],
+  .user-dashboard input[type="email"],
+  .user-dashboard input[type="text"] {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .user-dashboard button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+  }
+}

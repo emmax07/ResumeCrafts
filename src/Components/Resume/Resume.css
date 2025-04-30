@@ -1,0 +1,79 @@
+.main-container {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  margin-left: 10%;
+  margin-top: 3%;
+}
+
+.resume-container {
+  width: 60%;
+  margin: auto 0;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  margin-bottom: 5%;
+}
+
+.resume-container input,
+.resume-container textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1.2rem;
+}
+
+.resume-container h1,
+.resume-container form {
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  margin: 3% auto;
+  color: rgb(48, 126, 243);
+}
+
+.resume-container h3 {
+  margin-bottom: 10px;
+}
+
+.resume-container h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.data-input {
+  height: 20vh;
+  margin-top: 0%;
+  width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  resize: none;
+  border-radius: 5%;
+  border-color: rgb(48, 126, 243);
+}
+
+.resume-container button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 1%;
+}
+
+.resume-container button:hover {
+  background: #0056b3;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

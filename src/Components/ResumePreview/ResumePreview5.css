@@ -1,0 +1,95 @@
+.resume-preview5-container {
+  display: flex;
+  background: white;
+  font-family: "Helvetica", "Arial", sans-serif;
+  min-height: 1000px;
+  width: 90%;
+  margin: 20px auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+.resume-preview5-sidebar {
+  background-color: #0d3c61;
+  color: white;
+  padding: 30px 20px;
+  width: 30%;
+}
+
+.resume-preview5-sidebar h1 {
+  font-size: 26px;
+  margin-bottom: 5px;
+}
+
+.resume-preview5-sidebar p {
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+.resume-preview5-sidebar-section {
+  margin-top: 30px;
+}
+
+.resume-preview5-sidebar-section h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+}
+
+/* Main Content */
+.resume-preview5-main-content {
+  width: 70%;
+  padding: 30px;
+}
+
+.resume-preview5-main-section {
+  margin-bottom: 40px;
+}
+
+.resume-preview5-main-section p,
+.resume-preview5-sidebar-section p {
+  font-size: 14px;
+  margin: 3px 0;
+  white-space: pre-line;
+  line-height: 1.5;
+  text-align: justify;
+}
+.resume-preview5-main-section h2 {
+  font-size: 22px;
+  color: #0d3c61;
+  margin-bottom: 15px;
+}
+
+.resume-preview5-new-para {
+  font-size: 15px;
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.resume-button-group {
+  margin-top: 1%;
+  margin-left: 20%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 60%;
+}
+
+.resume-button {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.resume-button:hover {
+  background-color: #3f51b5;
+  transform: translateY(-2px);
+}

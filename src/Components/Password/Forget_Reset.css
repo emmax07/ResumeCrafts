@@ -1,0 +1,43 @@
+/* Basic styling for forms */
+.forgot-password-container,
+.reset-password-container {
+  width: 300px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.forgot-password-container input,
+.reset-password-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.forgot-password-container button,
+.reset-password-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.forgot-password-container button:hover,
+.reset-password-container button:hover {
+  background-color: #45a049;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: red;
+}

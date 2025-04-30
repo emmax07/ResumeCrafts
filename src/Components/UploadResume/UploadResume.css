@@ -1,0 +1,125 @@
+/* ResumeList styles */
+.resume-list-container {
+  max-width: 80%;
+  margin: 50px auto;
+  padding: 2rem;
+  background-color: #f9faff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.resume-list-container h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #1a237e;
+}
+
+.resume-list-container ul {
+  list-style-position: inside;
+  padding: 0;
+  margin: 0;
+}
+
+.resume-list-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+  gap: 1rem;
+}
+
+.resume-list-item:hover {
+  transform: translateY(-2px);
+}
+
+.resume-details {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.resume-details .filename {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1a237e;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.resume-details .email {
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 4px;
+  word-break: break-word;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 100px;
+}
+
+.action-buttons button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  transition: background-color 0.2s ease;
+}
+
+.action-buttons button:hover {
+  background-color: #283593;
+}
+
+.delete-button {
+  background-color: #d32f2f;
+}
+
+.delete-button:hover {
+  background-color: #b71c1c !important;
+}
+
+/* Uploads styles */
+.uploads-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 2rem;
+  background-color: #f9faff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.upload-heading {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #1a237e;
+  margin-bottom: 2rem;
+}
+
+/* Shared styles */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

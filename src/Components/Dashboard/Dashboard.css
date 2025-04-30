@@ -1,0 +1,108 @@
+/* Container */
+.dashboard-container {
+  max-width: 80%;
+  margin: 50px auto;
+  padding: 3rem 4rem;
+  background: linear-gradient(to bottom right, #f0f2f5, #e3e7ed);
+  min-height: 100vh;
+  border-radius: 16px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.dashboard-container h1 {
+  color: #007bff;
+}
+.dashboard-title {
+  font-size: 2.75rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  color: #1a1a1a;
+}
+
+.dashboard-card-column {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10%;
+  width: 95%;
+}
+
+/* Card Styles */
+.dashboard-card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+  border-left: 8px solid transparent;
+  position: relative;
+  overflow: hidden;
+  height: 40vh;
+  width: 100%;
+  text-decoration: none;
+}
+
+/* Hover effect */
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Content Layout */
+.card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.card-value {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #111;
+}
+
+.card-icon {
+  font-size: 3rem;
+  opacity: 0.85;
+  margin-left: 1rem;
+}
+
+/* Color Accents */
+.card-blue {
+  border-left-color: #007bff;
+}
+
+.card-green {
+  border-left-color: #28a745;
+}
+
+.card-orange {
+  border-left-color: #fd7e14;
+}
+
+.card-red {
+  border-left-color: #dc3545;
+}
+
+/* Responsive: Stack on small screens */
+@media (max-width: 992px) {
+  .dashboard-card-column {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .dashboard-card-column {
+    grid-template-columns: 1fr;
+  }
+}
