@@ -18,7 +18,7 @@ const Users = () => {
   const fetchProfile = async () => {
     try {
       const res = await axios.get(
-        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com:5000/api/user/profile",
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -54,7 +54,7 @@ const Users = () => {
       }
 
       await axios.put(
-        "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
+        "https://resumecrafts-5e7e8b26d82f.herokuapp.com:5000/api/user/profile",
         payload,
         {
           headers: {
