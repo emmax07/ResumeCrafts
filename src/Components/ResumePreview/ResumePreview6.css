@@ -105,3 +105,43 @@
   background-color: #3f51b5;
   transform: translateY(-2px);
 }
+
+@media (max-width: 768px) {
+  .resume-preview6-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    padding: 20px;
+    margin: 0 auto;
+  }
+
+  .resume-preview6-header,
+  .resume-preview6-body {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  .resume-button-group {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .resume-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-preview6-wrapper {
+    padding: 10px;
+  }
+
+  .resume-button {
+    font-size: 14px;
+    padding: 10px;
+    width: 100%;
+  }
+}

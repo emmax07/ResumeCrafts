@@ -113,3 +113,33 @@
   background-color: #3f51b5;
   transform: translateY(-2px);
 }
+
+@media (max-width: 768px) {
+  .resume-preview4-container {
+    flex-direction: column;
+    width: 95%;
+    padding: 0;
+  }
+
+  .resume-preview4-left-panel {
+    width: 100%;
+    padding: 15px;
+  }
+
+  .resume-preview4-right-panel {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .resume-button-group {
+    flex-direction: column;
+    align-items: center;
+    margin: 20px auto;
+    width: 90%;
+    gap: 10px;
+  }
+
+  .resume-button {
+    width: 100%;
+  }
+}

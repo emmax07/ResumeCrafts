@@ -126,3 +126,56 @@ nav li a {
 nav li a:hover {
   color: #45a049;
 }
+
+/* Responsive Navbar: Mobile View */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px 20px;
+    border-radius: 0;
+  }
+
+  .home-button {
+    margin-bottom: 10px;
+  }
+
+  nav .right-items {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav li {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  nav li a,
+  .logout-button a,
+  .dashboard button {
+    width: 100%;
+    text-align: left;
+    padding: 10px 0;
+    font-size: 16px;
+  }
+
+  .username {
+    margin: 10px 0;
+  }
+
+  .dashboard button {
+    padding: 10px;
+    font-size: 16px;
+  }
+
+  .logout-button a {
+    padding: 10px;
+    display: block;
+  }
+}

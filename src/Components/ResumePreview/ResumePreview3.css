@@ -89,3 +89,47 @@
 .resume-button:hover {
   background-color: #256d46;
 }
+
+@media (max-width: 768px) {
+  .resume-preview3-container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .resume-preview3-main-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .resume-button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .resume-button {
+    width: 90%;
+    margin: 5px 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .resume-preview3-container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .resume-preview3-main-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .resume-button-group {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .resume-button {
+    width: 90%;
+    margin: 5px 0;
+  }
+}

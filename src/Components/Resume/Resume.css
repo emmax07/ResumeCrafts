@@ -77,3 +77,48 @@
   color: red;
   text-align: center;
 }
+
+/* Responsive Design: Mobile View */
+@media (max-width: 480px) {
+  .main-container {
+    width: 100%;
+    flex-direction: column;
+    margin-left: 0;
+    margin-top: 5%;
+    padding: 10px;
+  }
+
+  .resume-container {
+    width: 90%;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 8%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .resume-container h1 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+
+  .resume-container h3 {
+    font-size: 1.1rem;
+  }
+
+  .resume-container input,
+  .resume-container textarea {
+    font-size: 1rem;
+    padding: 10px;
+  }
+
+  .data-input {
+    height: 150px;
+    font-size: 1rem;
+    border-radius: 8px;
+  }
+
+  .resume-container button {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}

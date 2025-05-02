@@ -95,14 +95,78 @@
 }
 
 /* Responsive: Stack on small screens */
-@media (max-width: 992px) {
+/* @media for screens smaller than 768px (Tablets and smaller screens) */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 2rem 2rem; /* Reduce padding for smaller screens */
+  }
+
+  .dashboard-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
   .dashboard-card-column {
     grid-template-columns: repeat(2, 1fr);
+    gap: 5%; /* Smaller gap for smaller screens */
+  }
+
+  .dashboard-card {
+    padding: 1.5rem; /* Reduce padding in cards */
+    height: 30vh; /* Reduce card height for smaller screens */
+  }
+
+  .card-info {
+    gap: 0.3rem;
+  }
+
+  .card-title {
+    font-size: 1.2rem; /* Smaller title font */
+  }
+
+  .card-value {
+    font-size: 1.8rem; /* Smaller value font */
+  }
+
+  .card-icon {
+    font-size: 2.5rem; /* Slightly smaller icon */
   }
 }
 
-@media (max-width: 600px) {
+/* @media for screens smaller than 480px (Mobile phones) */
+@media (max-width: 480px) {
+  .dashboard-container {
+    padding: 1.5rem 1.5rem; /* Further reduce padding for mobile */
+  }
+
+  .dashboard-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
   .dashboard-card-column {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Stack cards in a single column */
+    gap: 10%; /* Keep a small gap between cards */
+  }
+
+  .dashboard-card {
+    padding: 1rem; /* Further reduce padding in cards */
+    height: 25vh; /* Further reduce card height for smaller screens */
+  }
+
+  .card-info {
+    gap: 0.2rem;
+  }
+
+  .card-title {
+    font-size: 1rem; /* Further reduce title font size */
+  }
+
+  .card-value {
+    font-size: 1.5rem; /* Further reduce value font size */
+  }
+
+  .card-icon {
+    font-size: 2rem; /* Smaller icon for mobile */
   }
 }
