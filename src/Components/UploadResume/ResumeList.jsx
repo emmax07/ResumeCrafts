@@ -15,7 +15,10 @@ const ResumeList = () => {
       const res = await axios.get(
         "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
         {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: {
+            "Cache-Control": "no-cache",
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
       setUserEmail(res.data.email);
@@ -31,7 +34,10 @@ const ResumeList = () => {
       const res = await axios.get(
         "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes",
         {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: {
+            "Cache-Control": "no-cache",
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
       console.log(res.data);
@@ -75,7 +81,10 @@ const ResumeList = () => {
           `https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes/${resumeId}/download`,
           {
             responseType: "blob",
-            headers: { Authorization: `Bearer ${token}` },
+            headers: {
+              "Cache-Control": "no-cache",
+              Authorization: `Bearer ${token}`,
+            },
           }
         )
         .then((res) => {
@@ -112,7 +121,10 @@ const ResumeList = () => {
           `https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes/${resumeId}/preview`,
           {
             responseType: "blob",
-            headers: { Authorization: `Bearer ${token}` },
+            headers: {
+              "Cache-Control": "no-cache",
+              Authorization: `Bearer ${token}`,
+            },
           }
         )
         .then((res) => {
@@ -139,7 +151,10 @@ const ResumeList = () => {
       await axios.delete(
         `https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes/${resumeId}`,
         {
-          headers: { Authorization: `Bearer ${token}` },
+          headers: {
+            "Cache-Control": "no-cache",
+            Authorization: `Bearer ${token}`,
+          },
         }
       );
       fetchResumes();
