@@ -16,7 +16,6 @@ const ResumeList = () => {
         "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
         {
           headers: {
-            "Cache-Control": "no-cache",
             Authorization: `Bearer ${token}`,
           },
         }
@@ -35,7 +34,6 @@ const ResumeList = () => {
         "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes",
         {
           headers: {
-            "Cache-Control": "no-cache",
             Authorization: `Bearer ${token}`,
           },
         }
@@ -82,7 +80,6 @@ const ResumeList = () => {
           {
             responseType: "blob",
             headers: {
-              "Cache-Control": "no-cache",
               Authorization: `Bearer ${token}`,
             },
           }
@@ -122,7 +119,6 @@ const ResumeList = () => {
           {
             responseType: "blob",
             headers: {
-              "Cache-Control": "no-cache",
               Authorization: `Bearer ${token}`,
             },
           }
@@ -152,7 +148,6 @@ const ResumeList = () => {
         `https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes/${resumeId}`,
         {
           headers: {
-            "Cache-Control": "no-cache",
             Authorization: `Bearer ${token}`,
           },
         }
