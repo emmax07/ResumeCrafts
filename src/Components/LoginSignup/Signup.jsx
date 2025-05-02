@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./LoginSignup.css";
 const Signup = () => {
   const [username, setUsername] = useState("");
@@ -57,7 +57,7 @@ const Signup = () => {
       </form>
       <div className="form-link">
         <span>
-          Already have an account? <a href="/login">Login</a>
+          Already have an account? <Link to="/login"> Login</Link>
         </span>
       </div>
     </div>
