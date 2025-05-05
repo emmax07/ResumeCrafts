@@ -7,10 +7,23 @@ const ResumeList = () => {
   const [resumes, setResumes] = useState([]);
   const [userEmail, setUserEmail] = useState("");
   const [userRole, setUserRole] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const token = localStorage.getItem("token");
 
+  // Check token validity before making API requests
+  const isTokenValid = () => {
+    if (!token) {
+      setErrorMessage("Token expired or not available. Please login again.");
+      return false;
+    }
+    return true;
+  };
+
+  // Fetch user profile data
   const fetchProfile = async () => {
+    if (!isTokenValid()) return;
+
     try {
       const res = await axios.get(
         "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
@@ -24,11 +37,14 @@ const ResumeList = () => {
       setUserRole(res.data.role);
     } catch (err) {
       console.error("Failed to fetch profile:", err);
-      alert("Login required");
+      setErrorMessage("Login required. Please log in again.");
     }
   };
 
+  // Fetch resumes based on user role
   const fetchResumes = async () => {
+    if (!isTokenValid()) return;
+
     try {
       const res = await axios.get(
         "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes",
@@ -50,6 +66,7 @@ const ResumeList = () => {
       }
     } catch (err) {
       console.error("Error fetching resumes", err);
+      setErrorMessage("Error fetching resumes. Please try again later.");
     }
   };
 
@@ -63,7 +80,10 @@ const ResumeList = () => {
     }
   }, [userEmail, userRole]);
 
+  // Download resume function
   const downloadResume = (resumeId) => {
+    if (!isTokenValid()) return;
+
     if (
       userRole === "admin" ||
       resumes.some(
@@ -99,13 +119,19 @@ const ResumeList = () => {
         })
         .catch((err) => {
           console.error("Download error", err);
+          setErrorMessage(
+            "There was an error downloading your resume. Please try again."
+          );
         });
     } else {
       alert("You are not authorized to download this resume.");
     }
   };
 
+  // View resume function
   const viewResume = (resumeId) => {
+    if (!isTokenValid()) return;
+
     if (
       userRole === "admin" ||
       resumes.some(
@@ -136,13 +162,19 @@ const ResumeList = () => {
         })
         .catch((err) => {
           console.error("View error", err);
+          setErrorMessage(
+            "There was an error viewing your resume. Please try again."
+          );
         });
     } else {
       alert("You are not authorized to view this resume.");
     }
   };
 
+  // Delete resume function
   const deleteResume = async (resumeId) => {
+    if (!isTokenValid()) return;
+
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this resume?"
     );
@@ -160,7 +192,7 @@ const ResumeList = () => {
       fetchResumes();
     } catch (err) {
       console.error("Delete error", err);
-      alert("Failed to delete the resume.");
+      setErrorMessage("Failed to delete the resume. Please try again later.");
     }
   };
 
@@ -169,6 +201,7 @@ const ResumeList = () => {
       <Navbar />
       <div className="resume-list-container">
         <h3>Resumes</h3>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
         <ul>
           {resumes.map((resume, index) => (
             <li key={resume.id} className="resume-list-item">
