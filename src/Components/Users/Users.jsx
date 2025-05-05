@@ -30,8 +30,8 @@ const Users = () => {
         password: "",
       });
     } catch (err) {
-      console.error("Failed to fetch profile:", err);
-      alert("Login required");
+      console.error("Failed to fetch profile:", err.response || err.message);
+      alert("Login required or error fetching profile.");
     }
   };
 
@@ -53,8 +53,8 @@ const Users = () => {
         payload.password = formData.password;
       }
 
-      // Update the profile via API
-      await axios.put(
+      // Send the PUT request to update the profile
+      const response = await axios.put(
         "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
         payload,
         {
@@ -65,25 +65,13 @@ const Users = () => {
         }
       );
 
-      // Optimistically update the profile state without re-fetching from the server
-      setProfile({
-        ...profile,
-        username: formData.username,
-        email: formData.email,
-      });
-
-      // If password was updated, include it in the profile update
-      if (formData.password) {
-        setProfile({
-          ...profile,
-          password: formData.password,
-        });
-      }
-
+      console.log("Profile updated successfully:", response.data);
+      // Re-fetch the profile to reflect changes
+      await fetchProfile();
       setEditing(false);
       setFormData((prev) => ({ ...prev, password: "" }));
     } catch (err) {
-      console.error("Update failed:", err.response || err);
+      console.error("Update failed:", err.response || err.message);
       alert("Update failed. Please check your input or try again.");
     }
   };
