@@ -53,6 +53,7 @@ const Users = () => {
         payload.password = formData.password;
       }
 
+      // Update the profile via API
       await axios.put(
         "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
         payload,
@@ -64,8 +65,21 @@ const Users = () => {
         }
       );
 
-      // Re-fetch the profile to reflect changes
-      await fetchProfile();
+      // Optimistically update the profile state without re-fetching from the server
+      setProfile({
+        ...profile,
+        username: formData.username,
+        email: formData.email,
+      });
+
+      // If password was updated, include it in the profile update
+      if (formData.password) {
+        setProfile({
+          ...profile,
+          password: formData.password,
+        });
+      }
+
       setEditing(false);
       setFormData((prev) => ({ ...prev, password: "" }));
     } catch (err) {
