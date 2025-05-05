@@ -11,19 +11,8 @@ const ResumeList = () => {
 
   const token = localStorage.getItem("token");
 
-  // Check token validity before making API requests
-  const isTokenValid = () => {
-    if (!token) {
-      setErrorMessage("Token expired or not available. Please login again.");
-      return false;
-    }
-    return true;
-  };
-
-  // Fetch user profile data
+  // Fetch user profile data (email and role)
   const fetchProfile = async () => {
-    if (!isTokenValid()) return;
-
     try {
       const res = await axios.get(
         "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/user/profile",
@@ -37,14 +26,12 @@ const ResumeList = () => {
       setUserRole(res.data.role);
     } catch (err) {
       console.error("Failed to fetch profile:", err);
-      setErrorMessage("Login required. Please log in again.");
+      alert("Login required");
     }
   };
 
   // Fetch resumes based on user role
   const fetchResumes = async () => {
-    if (!isTokenValid()) return;
-
     try {
       const res = await axios.get(
         "https://resumecrafts-5e7e8b26d82f.herokuapp.com/api/resumes",
@@ -66,19 +53,17 @@ const ResumeList = () => {
       }
     } catch (err) {
       console.error("Error fetching resumes", err);
-      setErrorMessage("Error fetching resumes. Please try again later.");
     }
   };
 
-  useEffect(() => {
-    fetchProfile();
-  }, [token]);
-
-  useEffect(() => {
-    if (userEmail && userRole) {
-      fetchResumes();
+  // Check if the token is valid
+  const isTokenValid = () => {
+    if (!token) {
+      alert("Session expired, please log in again.");
+      return false;
     }
-  }, [userEmail, userRole]);
+    return true;
+  };
 
   // Download resume function
   const downloadResume = (resumeId) => {
@@ -107,15 +92,27 @@ const ResumeList = () => {
           }
         )
         .then((res) => {
-          const url = window.URL.createObjectURL(
-            new Blob([res.data], { type: "application/pdf" })
-          );
-          const link = document.createElement("a");
-          link.href = url;
-          link.setAttribute("download", "resume.pdf"); // fallback filename
-          document.body.appendChild(link);
-          link.click();
-          link.remove();
+          // Log to check the content type and response data
+          console.log("Response headers: ", res.headers);
+          console.log("Response data: ", res.data);
+
+          // Check if the response content type is pdf
+          if (res.headers["content-type"] === "application/pdf") {
+            const url = window.URL.createObjectURL(
+              new Blob([res.data], { type: "application/pdf" })
+            );
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", "resume.pdf"); // fallback filename
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+          } else {
+            console.error("Received content is not a PDF.");
+            setErrorMessage(
+              "Failed to download the resume. The file may not be a valid PDF."
+            );
+          }
         })
         .catch((err) => {
           console.error("Download error", err);
@@ -155,10 +152,22 @@ const ResumeList = () => {
           }
         )
         .then((res) => {
-          const url = window.URL.createObjectURL(
-            new Blob([res.data], { type: "application/pdf" })
-          );
-          window.open(url, "_blank");
+          // Log to check the content type and response data
+          console.log("Response headers: ", res.headers);
+          console.log("Response data: ", res.data);
+
+          // Check if the response content type is pdf
+          if (res.headers["content-type"] === "application/pdf") {
+            const url = window.URL.createObjectURL(
+              new Blob([res.data], { type: "application/pdf" })
+            );
+            window.open(url, "_blank");
+          } else {
+            console.error("Received content is not a PDF.");
+            setErrorMessage(
+              "Failed to view the resume. The file may not be a valid PDF."
+            );
+          }
         })
         .catch((err) => {
           console.error("View error", err);
@@ -173,8 +182,6 @@ const ResumeList = () => {
 
   // Delete resume function
   const deleteResume = async (resumeId) => {
-    if (!isTokenValid()) return;
-
     const confirmDelete = window.confirm(
       "Are you sure you want to delete this resume?"
     );
@@ -192,16 +199,28 @@ const ResumeList = () => {
       fetchResumes();
     } catch (err) {
       console.error("Delete error", err);
-      setErrorMessage("Failed to delete the resume. Please try again later.");
+      alert("Failed to delete the resume.");
     }
   };
+
+  // Fetch profile and resumes when the component mounts
+  useEffect(() => {
+    fetchProfile();
+  }, [token]);
+
+  // Fetch resumes when the user data is available
+  useEffect(() => {
+    if (userEmail && userRole) {
+      fetchResumes();
+    }
+  }, [userEmail, userRole]);
 
   return (
     <div>
       <Navbar />
       <div className="resume-list-container">
         <h3>Resumes</h3>
-        {errorMessage && <div className="error-message">{errorMessage}</div>}
+        {errorMessage && <p className="error-message">{errorMessage}</p>}
         <ul>
           {resumes.map((resume, index) => (
             <li key={resume.id} className="resume-list-item">
