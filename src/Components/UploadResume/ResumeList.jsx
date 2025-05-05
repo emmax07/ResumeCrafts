@@ -38,7 +38,6 @@ const ResumeList = () => {
           },
         }
       );
-      console.log(res.data);
       if (userRole !== "admin") {
         const filtered = res.data.filter(
           (resume) =>
@@ -85,18 +84,26 @@ const ResumeList = () => {
           }
         )
         .then((res) => {
-          const url = window.URL.createObjectURL(
-            new Blob([res.data], { type: "application/pdf" })
-          );
+          const blob = new Blob([res.data], { type: "application/pdf" });
+          const url = window.URL.createObjectURL(blob);
+
+          const contentDisposition = res.headers["content-disposition"];
+          let filename = "resume.pdf";
+          if (contentDisposition) {
+            const match = contentDisposition.match(/filename="?([^"]+)"?/);
+            if (match?.[1]) filename = match[1];
+          }
+
           const link = document.createElement("a");
           link.href = url;
-          link.setAttribute("download", res.data.filename);
+          link.setAttribute("download", filename);
           document.body.appendChild(link);
           link.click();
           link.remove();
         })
         .catch((err) => {
           console.error("Download error", err);
+          alert("Failed to download resume.");
         });
     } else {
       alert("You are not authorized to download this resume.");
@@ -124,13 +131,13 @@ const ResumeList = () => {
           }
         )
         .then((res) => {
-          const url = window.URL.createObjectURL(
-            new Blob([res.data], { type: "application/pdf" })
-          );
+          const blob = new Blob([res.data], { type: "application/pdf" });
+          const url = window.URL.createObjectURL(blob);
           window.open(url, "_blank");
         })
         .catch((err) => {
           console.error("View error", err);
+          alert("Failed to preview resume. Please try again.");
         });
     } else {
       alert("You are not authorized to view this resume.");
@@ -165,30 +172,27 @@ const ResumeList = () => {
       <div className="resume-list-container">
         <h3>Resumes</h3>
         <ul>
-          {resumes.map((resume, index) => {
-            console.log(resume);
-            return (
-              <li key={resume.id} className="resume-list-item">
-                <span className="resume-index">{index + 1}.</span>
-                <div className="resume-details">
-                  <div className="filename">{resume.filename}</div>
-                  <div className="email">{resume.user_email}</div>
-                </div>
-                <div className="action-buttons">
-                  <button onClick={() => downloadResume(resume.id)}>
-                    Download
-                  </button>
-                  <button onClick={() => viewResume(resume.id)}>View</button>
-                  <button
-                    onClick={() => deleteResume(resume.id)}
-                    className="delete-button"
-                  >
-                    Delete
-                  </button>
-                </div>
-              </li>
-            );
-          })}
+          {resumes.map((resume, index) => (
+            <li key={resume.id} className="resume-list-item">
+              <span className="resume-index">{index + 1}.</span>
+              <div className="resume-details">
+                <div className="filename">{resume.filename}</div>
+                <div className="email">{resume.user_email}</div>
+              </div>
+              <div className="action-buttons">
+                <button onClick={() => downloadResume(resume.id)}>
+                  Download
+                </button>
+                <button onClick={() => viewResume(resume.id)}>View</button>
+                <button
+                  onClick={() => deleteResume(resume.id)}
+                  className="delete-button"
+                >
+                  Delete
+                </button>
+              </div>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
